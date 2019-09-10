@@ -1,4 +1,4 @@
-# dnd-autofit
+# dnd-message-channel
 
 ## Road Map
 
