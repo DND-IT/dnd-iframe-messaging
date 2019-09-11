@@ -1,0 +1,9 @@
+{
+  "name": "dnd-message-channel",
+  "version": "1.0.0",
+  "description": "TBD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DND-IT/dnd-iframe-messaging.git"
+  }
+}
