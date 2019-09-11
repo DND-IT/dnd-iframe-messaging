@@ -12,7 +12,7 @@ const commands = {
             window.removeEventListener('message', run);
         }
 
-        Object.keys(plugins).forEach((key) => commands[key]);
+        Object.keys(plugins).forEach((key) => plugins[key]());
     }
 };
 
