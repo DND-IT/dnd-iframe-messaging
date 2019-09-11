@@ -11,7 +11,7 @@ class Receiver extends React.Component {
         this.setState({
             id: register(
                 ({type, height}) => type === 'autofit' && this.setState({height}),
-                (id) => event.target.contentWindow.postMessage({type: "init", id}, "*")
+                (id) => event.target.contentWindow.postMessage({type: "setup", id}, "*")
             )
         });
     };
