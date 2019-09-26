@@ -1,4 +1,4 @@
-import { sendData, addPlugin } from "../client";
+import { sendData, addPlugin } from "../child";
 
 const type = 'autofit';
 let contentHeight = 0;
@@ -16,10 +16,10 @@ const getContentSize = () => {
 
 const run = () => {
     const contentSize = getContentSize();
-
+    
     if(contentSize !== contentHeight) {
         contentHeight = contentSize;
-        sendData({id, type, contentHeight});
+        sendData(type, {contentHeight});
     }
 };
 
