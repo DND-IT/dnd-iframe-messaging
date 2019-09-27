@@ -4,7 +4,7 @@ let validHandlers = []
 /**
  * Register callbacks for an iframe
  *
- * @param {function} notify callback to notify on message receival
+ * @param {function} handlers object which maps plugin_type to notify callback for that plugin on message receival
  * @param {function} refresh callback that get triggered if a message without ID is received
  * @returns an iframe id
  */
