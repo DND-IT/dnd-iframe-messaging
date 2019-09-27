@@ -10,8 +10,9 @@ if(typeof window !== 'undefined') {
 class IFrameWithMessaging extends React.Component {
   
   constructor(props) {
+    super(props)
     this.state = {
-      height: this.props.height
+      height: props.height
     }
   }
   
