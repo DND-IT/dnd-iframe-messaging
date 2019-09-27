@@ -1,2 +1,4 @@
 src/parent/react/*
 rollup.config.js
+dist
+build
