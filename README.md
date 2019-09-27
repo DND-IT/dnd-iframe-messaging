@@ -10,3 +10,10 @@ WIP
 
 ### Version 2.0
 - Remove ID based global handler
+
+
+## Todos
+- add minification to build
+- create npm package (parent side only?)
+- push npm package to dnd artifactory repo
+- improve build process / file naming

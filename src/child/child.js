@@ -1,36 +1,36 @@
-let connection = null;
+let connection = null
 
-const plugins = {};
+const plugins = {}
 const commands = {
-    'setup': (event) => {
-        const {data: {id}, port = window.parent} = event;
-        connection = {id, port};
+  setup: (event) => {
+    const { data: { id }, port = window.parent } = event
+    connection = { id, port }
 
-        if(connection.port instanceof window.MessagePort) {
-            connection.port.onmessage = run;
-            window.removeEventListener('message', run);
-        }
-
-        Object.keys(plugins).forEach((key) => plugins[key]());
+    if (connection.port instanceof window.MessagePort) {
+      connection.port.onmessage = run
+      window.removeEventListener('message', run)
     }
-};
 
-const run = (event) => commands[event.data.type] && commands[event.data.type](event);
+    Object.keys(plugins).forEach((key) => plugins[key]())
+  }
+}
 
-const addPlugin = (name, plugin) => plugins[name] = plugin;
-const addCommand = (name, command) => commands[name] = command;
+const run = (event) => commands[event.data.type] && commands[event.data.type](event)
+
+const addPlugin = (name, plugin) => { plugins[name] = plugin }
+const addCommand = (name, command) => { commands[name] = command }
 
 const sendData = (type, data) => {
-  connection && connection.port.postMessage({...data, ...{id: connection.id, type}}, "*");
+  connection && connection.port.postMessage({ ...data, ...{ id: connection.id, type } }, '*')
 }
 
 const init = () => {
-    window.addEventListener('message', run);
-};
+  window.addEventListener('message', run)
+}
 
 export {
-    addPlugin,
-    addCommand,
-    sendData,
-    init
-};
+  addPlugin,
+  addCommand,
+  sendData,
+  init
+}
