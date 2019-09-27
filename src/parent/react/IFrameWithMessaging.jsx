@@ -2,7 +2,8 @@ import React from 'react';
 
 import {register, unregister, init} from '../parent';
 
-if(process.browser) {
+// https://github.com/zeit/next.js/pull/7651
+if(typof window !== 'undefined') {
     init();
 }
 
