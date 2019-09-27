@@ -1,3 +1,4 @@
+/* Version <@VERSION@> */
 let connection = null
 
 const plugins = {}

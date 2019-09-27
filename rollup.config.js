@@ -1,5 +1,6 @@
 const rollup = require('rollup')
 const { terser } = require('rollup-plugin-terser')
+const replace = require('rollup-plugin-replace')
 const del = require('del')
 
 const { version } = require('./package.json')
@@ -24,7 +25,16 @@ console.log(`Building all files for ${version}`)
 build({
   input: 'build/dnd_iframe_autofit_child.js',
   plugins: [
-    terser()
+    replace({
+      exclude: 'node_modules/**',
+      delimiters: ['<@', '@>'],
+      values: {
+        VERSION: version
+      }
+    }),
+    terser({output: {
+      comments: 'all'
+    }})
   ]
 }, {
   file: `dist/${version}/dnd_iframe_autofit_child.js`,
