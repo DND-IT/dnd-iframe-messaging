@@ -16,7 +16,7 @@ The autofit functionality (iframe will communicate its actual height to it's par
 All relevant code for the iframe side is in `src/child`. There is a rollup script which builds a minified version of the child code.
 
 #### Building the script for the iframe
-The script is built by executing `node rollup.config.js`. This generates a minified version of the the relevant src code and saves it to `dist/<version>`.
+The script is built by executing `npm run build`. This generates a minified version of the the relevant src code and saves it to `dist/<version>`.
 
 Currently we build a script that includes the autofit plugin.
 
