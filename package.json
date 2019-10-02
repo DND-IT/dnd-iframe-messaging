@@ -1,5 +1,5 @@
 {
-  "name": "dnd-iframe-messaging",
+  "name": "@dnd-it/dnd-iframe-messaging",
   "version": "1.0.0",
   "description": "Plugin based library to handle 2 way communication between an iframe and it's parent using MessageChannels and/or postMessage",
   "repository": {
@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "node rollup.config.js",
-    "lint": "eslint --max-warnings 0 'src/**/*.js'"
+    "lint": "eslint --max-warnings 0 'src/**/*.js'",
+    "version": "npm run build && git add --all",
+    "postversion": "git push origin master && git push --tags && npm publish"
   },
   "husky": {
     "hooks": {

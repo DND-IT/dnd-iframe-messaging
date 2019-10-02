@@ -1,0 +1,4 @@
+src/child
+dist
+build
+rollup*
