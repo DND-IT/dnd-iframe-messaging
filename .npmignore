@@ -2,5 +2,7 @@ src/child
 dist
 build
 rollup*
-*rc*
-*ignore*
+.editorconfig
+.eslintrc
+.eslintignore
+.npmrc
