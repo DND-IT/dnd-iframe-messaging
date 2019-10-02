@@ -2,3 +2,5 @@ src/child
 dist
 build
 rollup*
+*rc*
+*ignore*
