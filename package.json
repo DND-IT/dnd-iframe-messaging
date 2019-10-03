@@ -11,7 +11,7 @@
     "build": "node build-dist.rollup.config.js && node build-npm.rollup.config.js",
     "lint": "eslint --max-warnings 0 'src/**/*.js'",
     "version": "npm run build && git add --all",
-    "postversion": "git push origin master && git push --tags && npm publish"
+    "postversion": "git push origin master && git push --tags && npm publish build"
   },
   "husky": {
     "hooks": {
