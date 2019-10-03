@@ -26,7 +26,7 @@ async function initBuildDir() {
   await fsPromises.copyFile('package.json', 'build/package.json')
 }
 
-initBuildDir()
+await initBuildDir()
 
 // console.log(`Building all files for ${version}`)
 build({
