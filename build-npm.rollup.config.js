@@ -2,7 +2,7 @@ const rollup = require('rollup')
 const replace = require('rollup-plugin-replace')
 const del = require('del')
 const babel = require('rollup-plugin-babel')
-const fs = require('fs')
+const fsPromises = require('fs').promises
 
 const { version } = require('./package.json')
 
@@ -22,10 +22,12 @@ async function cleanUp () {
 
 cleanUp()
 
-fs.mkdir('./build', (err) => {
-  if (err) throw err;
-  console.log('created build directory');
-});
+await fsPromises.mkdir('./build')
+
+// fs.mkdir('./build', (err) => {
+//   if (err) throw err;
+//   console.log('created build directory');
+// });
 
 fs.copyFile('package.json', 'build/package.json',  (err) => {
   if (err) throw err;
