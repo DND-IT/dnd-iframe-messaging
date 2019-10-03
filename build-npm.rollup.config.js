@@ -16,18 +16,16 @@ async function build (inputOptions, outputOptions) {
 }
 
 async function cleanUp () {
-  console.log(`Cleaning up any previously generated files in build directory`)
-  await del(['build'])
+  
 }
 
-cleanUp()
+async function initBuildDir() {
+  console.log(`Cleaning up any previously generated files in build directory`)
+  await del(['build'])
+  await fsPromises.mkdir('./build')
+}
 
-await fsPromises.mkdir('./build')
-
-// fs.mkdir('./build', (err) => {
-//   if (err) throw err;
-//   console.log('created build directory');
-// });
+initBuildDir()
 
 fs.copyFile('package.json', 'build/package.json',  (err) => {
   if (err) throw err;
