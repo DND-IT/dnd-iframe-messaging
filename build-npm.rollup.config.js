@@ -7,6 +7,7 @@ const fsPromises = require('fs').promises
 const { version } = require('./package.json')
 
 async function build (inputOptions, outputOptions) {
+  await initBuildDir()
   // create a bundle
   const bundle = await rollup.rollup(inputOptions);
   // generate code
@@ -15,18 +16,12 @@ async function build (inputOptions, outputOptions) {
   await bundle.write(outputOptions);
 }
 
-async function cleanUp () {
-  
-}
-
 async function initBuildDir() {
   console.log(`Cleaning up any previously generated files in build directory`)
   await del(['build'])
   await fsPromises.mkdir('./build')
   await fsPromises.copyFile('package.json', 'build/package.json')
 }
-
-await initBuildDir()
 
 // console.log(`Building all files for ${version}`)
 build({
