@@ -8,7 +8,7 @@
   },
   "main": "lib/dnd-iframe-messaging.js",
   "scripts": {
-    "build": "node rollup.config.js && node rollup-jsx.config.js",
+    "build": "node build-dist.rollup.config.js && node build-npm.rollup.config.js",
     "lint": "eslint --max-warnings 0 'src/**/*.js'",
     "version": "npm run build && git add --all",
     "postversion": "git push origin master && git push --tags && npm publish"
@@ -24,8 +24,6 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
     "del": "^5.1.0",
     "eslint": "^6.4.0",
     "eslint-plugin-react": "^7.15.1",

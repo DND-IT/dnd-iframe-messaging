@@ -1,8 +1,8 @@
 const rollup = require('rollup')
-const { terser } = require('rollup-plugin-terser')
 const replace = require('rollup-plugin-replace')
 const del = require('del')
 const babel = require('rollup-plugin-babel')
+const fs = require('fs')
 
 const { version } = require('./package.json')
 
@@ -15,12 +15,22 @@ async function build (inputOptions, outputOptions) {
   await bundle.write(outputOptions);
 }
 
-// async function cleanUp () {
-//   console.log(`Cleaning up any previously generated files for version ${version}`)
-//   await del([`dist/${version}`])
-// }
-//
-// cleanUp()
+async function cleanUp () {
+  console.log(`Cleaning up any previously generated files in build directory`)
+  await del(['build'])
+}
+
+cleanUp()
+
+fs.mkdir('./build', (err) => {
+  if (err) throw err;
+  console.log('created build directory');
+});
+
+fs.copyFile('package.json', 'build/package.json',  (err) => {
+  if (err) throw err;
+  console.log('File was copied to destination');
+})
 
 // console.log(`Building all files for ${version}`)
 build({
@@ -46,7 +56,7 @@ build({
     // }})
   ]
 }, {
-  file: `lib/dnd-iframe-messaging.js`,
+  file: 'build/index.js',
   format: 'umd',
-  name: 'iframeWithAutofitChild'
+  name: 'dndIframeMessaging'
 })
