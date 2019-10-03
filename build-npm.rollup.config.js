@@ -23,14 +23,10 @@ async function initBuildDir() {
   console.log(`Cleaning up any previously generated files in build directory`)
   await del(['build'])
   await fsPromises.mkdir('./build')
+  await fsPromises.copyFile('package.json', 'build/package.json')
 }
 
 initBuildDir()
-
-fs.copyFile('package.json', 'build/package.json',  (err) => {
-  if (err) throw err;
-  console.log('File was copied to destination');
-})
 
 // console.log(`Building all files for ${version}`)
 build({
