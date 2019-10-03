@@ -6,7 +6,6 @@
     "type": "git",
     "url": "git+https://github.com/DND-IT/dnd-iframe-messaging.git"
   },
-  "main": "lib/dnd-iframe-messaging.js",
   "scripts": {
     "build": "node build-dist.rollup.config.js && node build-npm.rollup.config.js",
     "lint": "eslint --max-warnings 0 'src/**/*.js'",
