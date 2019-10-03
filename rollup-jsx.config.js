@@ -2,6 +2,7 @@ const rollup = require('rollup')
 const { terser } = require('rollup-plugin-terser')
 const replace = require('rollup-plugin-replace')
 const del = require('del')
+const babel = require('rollup-plugin-babel')
 
 const { version } = require('./package.json')
 
@@ -14,30 +15,38 @@ async function build (inputOptions, outputOptions) {
   await bundle.write(outputOptions);
 }
 
-async function cleanUp () {
-  console.log(`Cleaning up any previously generated files for version ${version}`)
-  await del([`dist/${version}`])
-}
+// async function cleanUp () {
+//   console.log(`Cleaning up any previously generated files for version ${version}`)
+//   await del([`dist/${version}`])
+// }
+//
+// cleanUp()
 
-cleanUp()
-
-console.log(`Building all files for ${version}`)
+// console.log(`Building all files for ${version}`)
 build({
-  input: 'dist/templates/dnd_iframe_autofit_child.js',
+  input: 'src/index.js',
   plugins: [
+    babel({
+      exclude: 'node_modules/**',
+      presets: [["@babel/env", {modules: false}], "@babel/react"],
+      plugins: [
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }),
     replace({
       exclude: 'node_modules/**',
       delimiters: ['<@', '@>'],
       values: {
         VERSION: version
       }
-    }),
-    terser({output: {
-      comments: 'all'
-    }})
+    })
+    // ,
+    // terser({output: {
+    //   comments: 'all'
+    // }})
   ]
 }, {
-  file: `dist/${version}/dnd_iframe_autofit_child.js`,
-  format: 'iife',
+  file: `lib/dnd-iframe-messaging.js`,
+  format: 'umd',
   name: 'iframeWithAutofitChild'
-});
+})
