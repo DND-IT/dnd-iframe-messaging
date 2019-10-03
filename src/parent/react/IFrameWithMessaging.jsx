@@ -18,7 +18,8 @@ class IFrameWithMessaging extends React.Component {
 
   static defaultProps = {
     height: 350,
-    withLegacySupport: false
+    withLegacySupport: false,
+    className: ''
   }
 
   handleCommunication = (event) => {
@@ -48,7 +49,7 @@ class IFrameWithMessaging extends React.Component {
     }
 
     return (
-      <iframe onLoad={this.handleCommunication} src={this.props.url} style={style} scrolling='no' width='100%' height={this.props.height} />
+      <iframe onLoad={this.handleCommunication} className={this.props.className} src={this.props.url} style={style} scrolling='no' width='100%' height={this.props.height} />
     )
   }
 }
