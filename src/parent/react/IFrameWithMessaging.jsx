@@ -21,7 +21,8 @@ class IFrameWithMessaging extends React.Component {
     initialHeight: 350,
     withLegacySupport: false,
     className: '',
-    width: '100%'
+    width: '100%',
+    allowFullScreen: false
   }
 
   handleCommunication = (event) => {
@@ -47,7 +48,7 @@ class IFrameWithMessaging extends React.Component {
   }
 
   render () {
-    const { className, url, width, initialHeight, minHeight } = this.props
+    const { className, url, width, initialHeight, minHeight, allowFullScreen } = this.props
 
     const style = {
       height: Math.max(this.state.height, minHeight)
@@ -61,6 +62,7 @@ class IFrameWithMessaging extends React.Component {
         style={style}
         width={width}
         height={initialHeight}
+        allowFullScreen={allowFullScreen}
         scrolling='no'
         frameBorder='no'
       />
