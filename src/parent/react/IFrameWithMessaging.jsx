@@ -62,7 +62,7 @@ class IFrameWithMessaging extends React.Component {
         width={width}
         height={initialHeight}
         scrolling='no'
-        frameborder='no'
+        frameBorder='no'
       />
     )
   }
