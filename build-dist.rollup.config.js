@@ -9,14 +9,14 @@ async function build (inputOptions, outputOptions) {
   // create a bundle
   const bundle = await rollup.rollup(inputOptions);
   // generate code
-  const { output } = await bundle.generate(outputOptions);
+  await bundle.generate(outputOptions);
   // or write the bundle to disk
   await bundle.write(outputOptions);
 }
 
 async function cleanUp () {
   console.log(`Cleaning up any previously generated files for version ${version}`)
-  await del([`dist/${version}`])
+  await del([`dist/.*`])
 }
 
 cleanUp()
@@ -37,7 +37,7 @@ build({
     }})
   ]
 }, {
-  file: `dist/${version}/dnd_iframe_autofit_child.js`,
+  file: `dist/dnd_iframe_autofit_child.js`,
   format: 'iife',
-  name: 'iframeWithAutofitChild'
+  name: 'dndIframeAutofitChild'
 });

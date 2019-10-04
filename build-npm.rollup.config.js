@@ -11,7 +11,7 @@ async function build (inputOptions, outputOptions) {
   // create a bundle
   const bundle = await rollup.rollup(inputOptions);
   // generate code
-  const { output } = await bundle.generate(outputOptions);
+  await bundle.generate(outputOptions);
   // or write the bundle to disk
   await bundle.write(outputOptions);
 }
@@ -23,7 +23,7 @@ async function initBuildDir() {
   await fsPromises.copyFile('package.json', 'build/package.json')
 }
 
-// console.log(`Building all files for ${version}`)
+console.log(`preparing files for npm package ${version}`)
 build({
   input: 'src/index.js',
   plugins: [
@@ -41,10 +41,6 @@ build({
         VERSION: version
       }
     })
-    // ,
-    // terser({output: {
-    //   comments: 'all'
-    // }})
   ]
 }, {
   file: 'build/index.js',
