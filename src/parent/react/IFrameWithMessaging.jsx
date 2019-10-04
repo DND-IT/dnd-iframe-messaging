@@ -27,7 +27,8 @@ class IFrameWithMessaging extends React.Component {
     event.persist()
     this.setState({
       id: register({
-        autofit: ({ contentHeight }) => { this.setState({ height: contentHeight }) }
+        // eslint-disable-next-line no-console
+        autofit: ({ contentHeight }) => { console.log('new height', contentHeight); this.setState({ height: contentHeight }) }
       },
       (id) => {
         if (this.props.enableLegacySupport) event.target.contentWindow.postMessage({ type: 'setAutofit', iframeId: id }, '*')
@@ -46,7 +47,7 @@ class IFrameWithMessaging extends React.Component {
 
   render () {
     const style = {
-      height: this.state.height
+      height: Math.max(this.state.height, this.props.height)
     }
 
     const { className, url, width, height, ...rest } = this.props
