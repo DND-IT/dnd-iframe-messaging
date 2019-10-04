@@ -29,7 +29,6 @@ class IFrameWithMessaging extends React.Component {
     event.persist()
     this.setState({
       id: register({
-        // eslint-disable-next-line no-console
         autofit: ({ contentHeight }) => { this.setState({ height: contentHeight }) }
       },
       (id) => {
