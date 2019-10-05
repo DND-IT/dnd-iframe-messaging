@@ -1,7 +1,5 @@
 # dnd-iframe-messaging
 
-This is work in progress
-
 Plugin based library to handle 2-way communication between an iframe and it's parent using MessageChannels and/or postMessage.
 
 ## Using this library
