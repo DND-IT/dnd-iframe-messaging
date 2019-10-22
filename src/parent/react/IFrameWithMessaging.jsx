@@ -47,8 +47,6 @@ class IFrameWithMessaging extends React.Component {
   }
 
   render () {
-    if (typeof window === 'undefined') return null
-
     const { className, url, width, initialHeight, minHeight, allowFullScreen } = this.props
 
     const style = {
@@ -57,7 +55,7 @@ class IFrameWithMessaging extends React.Component {
 
     return (
       <iframe
-        onLoad={this.handleCommunication}
+        onLoad={typeof window === 'undefined' ? function () {} : this.handleCommunication}
         className={className}
         src={url}
         style={style}
