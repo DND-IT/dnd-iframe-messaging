@@ -47,6 +47,8 @@ class IFrameWithMessaging extends React.Component {
   }
 
   render () {
+    if (typeof window === 'undefined') return null
+
     const { className, url, width, initialHeight, minHeight, allowFullScreen } = this.props
 
     const style = {
