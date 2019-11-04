@@ -33,11 +33,31 @@ build({
       }
     }),
     terser({output: {
-      comments: 'all'
+      comments: '/Version/'
     }})
   ]
 }, {
   file: `dist/dnd_iframe_autofit_child.js`,
   format: 'iife',
   name: 'dndIframeAutofitChild'
+});
+
+build({
+  input: 'dist/templates/dnd_iframe_autofit_parent.js',
+  plugins: [
+    replace({
+      exclude: 'node_modules/**',
+      delimiters: ['<@', '@>'],
+      values: {
+        VERSION: version
+      }
+    }),
+    terser({output: {
+      comments: '/Version/'
+    }})
+  ]
+}, {
+  file: `dist/dnd_iframe_autofit_parent.js`,
+  format: 'iife',
+  name: 'dndIframeAutofitParent'
 });
