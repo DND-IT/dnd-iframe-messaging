@@ -1,3 +1,4 @@
+/* Version <@VERSION@> */
 const frames = {}
 let validHandlers = []
 
