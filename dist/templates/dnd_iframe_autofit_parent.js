@@ -3,7 +3,7 @@
 import { register, init } from '../../src/parent/parent'
 
 const initializeIframes = () => {
-  const currentIframes = document.querySelectorAll('iframe')
+  const currentIframes = document.querySelectorAll('iframe.autofit')
   if (currentIframes.length) {
     currentIframes.forEach((iframe) => {
       iframe.addEventListener('load', (event) => {
