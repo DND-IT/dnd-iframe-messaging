@@ -19,7 +19,7 @@ class IFrameWithMessaging extends React.Component {
   static defaultProps = {
     minHeight: 0,
     initialHeight: 350,
-    withLegacySupport: false,
+    enableLegacySupport: false,
     className: '',
     width: '100%',
     allowFullScreen: false
