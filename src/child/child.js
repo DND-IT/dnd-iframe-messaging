@@ -22,7 +22,18 @@ const addPlugin = (name, plugin) => { plugins[name] = plugin }
 const addCommand = (name, command) => { commands[name] = command }
 
 const sendData = (type, data) => {
-  connection && connection.port.postMessage({ ...data, ...{ id: connection.id, type } }, '*')
+  const payload = { ...data, ...{ id: connection.id, type } }
+  connection && connection.port.postMessage(payload, '*')
+  postNativeAppMessage(payload)
+}
+
+const postNativeAppMessage = (payload) => {
+  if (window.webkit && window.webkit.messageHandlers.channel) {
+    window.webkit.messageHandlers.channel.postMessage(payload) // iOS message handler detected
+  }
+  if (window.appInterface) {
+    window.appInterface.postMessage(JSON.stringify(payload)) // Android message handler detected
+  }
 }
 
 const init = () => {
