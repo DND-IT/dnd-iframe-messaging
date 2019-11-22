@@ -1,3 +1,9 @@
+## 1.2.0 (November 22, 2019)
+
+### src/child/child.js
+
+* if child-page (child-script) is included in native app, it triggers postMessage "natively"... (IA-574)
+
 ## 1.1.7 (November 8, 2019)
 
 ### IFrameWithMessaging component
