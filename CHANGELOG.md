@@ -1,8 +1,12 @@
-## 1.2.0 (November 22, 2019)
+## 1.2.1 (November 22, 2019)
 
 ### src/child/child.js
 
 * if child-page (child-script) is included in native app, it triggers postMessage "natively"... (IA-574)
+
+## 1.2.0
+
+* never pushed due to npm auth issues
 
 ## 1.1.7 (November 8, 2019)
 
