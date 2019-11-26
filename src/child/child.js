@@ -28,8 +28,8 @@ const sendData = (type, data) => {
 }
 
 const postNativeAppMessage = (payload) => {
-  if (window.webkit && window.webkit.messageHandlers.channel) {
-    window.webkit.messageHandlers.channel.postMessage(payload) // iOS message handler detected
+  if (window.webkit && window.webkit.messageHandlers.dndIframeMessaging) {
+    window.webkit.messageHandlers.dndIframeMessaging.postMessage(payload) // iOS message handler detected
   }
   if (window.appInterface) {
     window.appInterface.postMessage(JSON.stringify(payload)) // Android message handler detected

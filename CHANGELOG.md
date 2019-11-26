@@ -1,3 +1,9 @@
+## 1.2.2 (November 26, 2019)
+
+### src/child/child.js
+
+* use specific channel name "dndIframeMessaging" for native webkit integration
+
 ## 1.2.1 (November 22, 2019)
 
 ### src/child/child.js
