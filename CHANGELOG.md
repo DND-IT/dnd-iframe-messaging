@@ -1,3 +1,9 @@
+## 1.2.3 (November 27, 2019)
+
+### IFrameWithMessaging component
+
+* added maxHeight in react component for debugging ([@andi](https://github.com/andi))
+
 ## 1.2.2 (November 26, 2019)
 
 ### src/child/child.js

@@ -12,7 +12,8 @@ class IFrameWithMessaging extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      height: props.minHeight
+      height: props.minHeight,
+      maxHeight: 0
     }
   }
 
@@ -22,14 +23,17 @@ class IFrameWithMessaging extends React.Component {
     enableLegacySupport: false,
     className: '',
     width: '100%',
-    allowFullScreen: false
+    allowFullScreen: false,
+    maxHeight: 0
   }
 
   handleCommunication = (event) => {
     event.persist()
     this.setState({
       id: register({
-        autofit: ({ contentHeight }) => { this.setState({ height: contentHeight }) }
+        autofit: ({ contentHeight }) => {
+          this.setState({ height: contentHeight, maxHeight: Math.max(contentHeight, this.state.maxHeight) })
+        }
       },
       (id) => {
         if (this.props.enableLegacySupport) event.target.contentWindow.postMessage({ type: 'setAutofit', iframeId: id }, '*')
@@ -60,6 +64,7 @@ class IFrameWithMessaging extends React.Component {
         src={url}
         style={style}
         width={width}
+        maxHeight={this.state.maxHeight}
         height={initialHeight}
         allowFullScreen={allowFullScreen}
         scrolling='no'
