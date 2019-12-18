@@ -1,3 +1,9 @@
+## 1.2.5 (December 17, 2019)
+
+### IFrameWithMessaging component
+
+* removed unnecessary default props ([@andi](https://github.com/andi))
+
 ## 1.2.4 (December 17, 2019)
 
 ### IFrameWithMessaging component

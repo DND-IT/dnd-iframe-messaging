@@ -23,8 +23,7 @@ class IFrameWithMessaging extends React.Component {
     enableLegacySupport: false,
     className: '',
     width: '100%',
-    allowFullScreen: false,
-    maxHeight: 0
+    allowFullScreen: false
   }
 
   handleCommunication = (event) => {
