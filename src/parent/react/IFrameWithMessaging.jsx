@@ -64,7 +64,7 @@ class IFrameWithMessaging extends React.Component {
         src={url}
         style={style}
         width={width}
-        maxHeight={this.state.maxHeight}
+        data-maxheight={this.state.maxHeight}
         height={initialHeight}
         allowFullScreen={allowFullScreen}
         scrolling='no'

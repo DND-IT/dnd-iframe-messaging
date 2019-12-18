@@ -1,3 +1,9 @@
+## 1.2.4 (December 17, 2019)
+
+### IFrameWithMessaging component
+
+* renamed maxHeight attribute to data-maxheight ([@andi](https://github.com/andi))
+
 ## 1.2.3 (November 27, 2019)
 
 ### IFrameWithMessaging component
