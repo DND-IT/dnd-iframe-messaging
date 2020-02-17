@@ -7,7 +7,6 @@ const fsPromises = require('fs').promises
 const { version } = require('./package.json')
 
 async function build (inputOptions, outputOptions) {
-  await initBuildDir()
   // create a bundle
   const bundle = await rollup.rollup(inputOptions);
   // generate code
@@ -23,27 +22,53 @@ async function initBuildDir() {
   await fsPromises.copyFile('package.json', 'build/package.json')
 }
 
-console.log(`preparing files for npm package ${version}`)
-build({
-  input: 'src/index.js',
-  plugins: [
-    babel({
-      exclude: 'node_modules/**',
-      presets: [["@babel/env", {modules: false}], "@babel/react"],
-      plugins: [
-        "@babel/plugin-proposal-class-properties"
-      ]
-    }),
-    replace({
-      exclude: 'node_modules/**',
-      delimiters: ['<@', '@>'],
-      values: {
-        VERSION: version
-      }
-    })
-  ]
-}, {
-  file: 'build/index.js',
-  format: 'umd',
-  name: 'dndIframeMessaging'
+initBuildDir().then(async () => {
+  console.log(`preparing files for npm package ${version}`)
+  await build({
+    input: 'src/index.js',
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+        presets: [["@babel/env", {modules: false}], "@babel/react"],
+        plugins: [
+          "@babel/plugin-proposal-class-properties"
+        ]
+      }),
+      replace({
+        exclude: 'node_modules/**',
+        delimiters: ['<@', '@>'],
+        values: {
+          VERSION: version
+        }
+      })
+    ]
+  }, {
+    file: 'build/index.js',
+    format: 'umd',
+    name: 'dndIframeMessaging'
+  });
+
+  await build({
+    input: 'src/index.js',
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+        presets: [["@babel/env", {modules: false}], "@babel/react"],
+        plugins: [
+          "@babel/plugin-proposal-class-properties"
+        ]
+      }),
+      replace({
+        exclude: 'node_modules/**',
+        delimiters: ['<@', '@>'],
+        values: {
+          VERSION: version
+        }
+      })
+    ]
+  }, {
+    file: 'build/esm.js',
+    format: 'esm',
+    name: 'dndIframeMessaging'
+  })
 })
