@@ -1,3 +1,4 @@
+/* Version <@VERSION@> */
 import { sendData, addPlugin } from '../child'
 
 const type = 'autofit'
