@@ -20,7 +20,6 @@ async function initBuildDir() {
   await del(['build'])
   await fsPromises.mkdir('./build')
   await fsPromises.copyFile('package.json', 'build/package.json')
-  await fsPromises.mkdir('./build/es')
 }
 
 initBuildDir().then(async () => {
@@ -73,9 +72,7 @@ initBuildDir().then(async () => {
       })
     ]
   }, {
-    dir: 'build/es',
-    // file: 'build/module.js',
-    format: 'es',
-    name: 'dndIframeMessaging'
+    dir: 'build',
+    format: 'commonjs'
   });
 })
