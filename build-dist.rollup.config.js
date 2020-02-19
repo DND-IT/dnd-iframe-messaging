@@ -61,3 +61,22 @@ build({
   format: 'iife',
   name: 'dndIframeAutofitParent'
 });
+
+build({
+  input: ['dist/20min/templates/default.js'],
+  plugins: [
+    replace({
+      exclude: 'node_modules/**',
+      delimiters: ['<@', '@>'],
+      values: {
+        VERSION: version
+      }
+    }),
+    terser({output: {
+      comments: '/Version/'
+    }})
+  ]
+}, {
+  dir: `dist/20min/`,
+  format: 'iife',
+});
