@@ -58,7 +58,7 @@ initBuildDir().then(async () => {
     plugins: [
       babel({
         exclude: 'node_modules/**',
-        presets: [["@babel/env", {modules: false}], "@babel/react"],
+        presets: ["@babel/react"],
         plugins: [
           "@babel/plugin-proposal-class-properties"
         ]
