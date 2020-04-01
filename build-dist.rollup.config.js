@@ -1,5 +1,6 @@
 const rollup = require('rollup')
 const { terser } = require('rollup-plugin-terser')
+const babel = require('rollup-plugin-babel')
 const replace = require('rollup-plugin-replace')
 const del = require('del')
 
@@ -25,6 +26,13 @@ console.log(`Building all files for ${version}`)
 build({
   input: 'dist/templates/dnd_iframe_autofit_child.js',
   plugins: [
+    babel({
+      exclude: 'node_modules/**',
+      presets: [["@babel/env", {modules: false}], "@babel/react"],
+      plugins: [
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }),
     replace({
       exclude: 'node_modules/**',
       delimiters: ['<@', '@>'],
@@ -45,6 +53,13 @@ build({
 build({
   input: 'dist/templates/dnd_iframe_autofit_parent.js',
   plugins: [
+    babel({
+      exclude: 'node_modules/**',
+      presets: [["@babel/env", {modules: false}], "@babel/react"],
+      plugins: [
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }),
     replace({
       exclude: 'node_modules/**',
       delimiters: ['<@', '@>'],
@@ -65,6 +80,13 @@ build({
 build({
   input: ['dist/20min/templates/default.js'],
   plugins: [
+    babel({
+      exclude: 'node_modules/**',
+      presets: [["@babel/env", {modules: false}], "@babel/react"],
+      plugins: [
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }),
     replace({
       exclude: 'node_modules/**',
       delimiters: ['<@', '@>'],
