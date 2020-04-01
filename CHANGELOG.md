@@ -1,3 +1,7 @@
+## 1.4.0 (April 1, 2020)
+
+* added Babel to provide ES5 compatibility (IE11 especially) ([@backtick](https://github.com/backtick))
+
 ## 1.2.5 (December 17, 2019)
 
 ### IFrameWithMessaging component
