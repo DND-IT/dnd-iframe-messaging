@@ -1,3 +1,7 @@
+## 1.5.0 (May 12, 2020)
+
+* added a custom autofit plugin for datawrapper ([@andi](https://github.com/andi))
+
 ## 1.4.0 (April 1, 2020)
 
 * added Babel to provide ES5 compatibility (IE11 especially) ([@backtick](https://github.com/backtick))
