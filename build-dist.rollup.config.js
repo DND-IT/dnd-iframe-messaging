@@ -51,6 +51,33 @@ build({
 });
 
 build({
+  input: 'dist/templates/dnd_iframe_autofit_datawrapper.js',
+  plugins: [
+    babel({
+      exclude: 'node_modules/**',
+      presets: [["@babel/env", {modules: false}], "@babel/react"],
+      plugins: [
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }),
+    replace({
+      exclude: 'node_modules/**',
+      delimiters: ['<@', '@>'],
+      values: {
+        VERSION: version
+      }
+    }),
+    terser({output: {
+      comments: '/Version/'
+    }})
+  ]
+}, {
+  file: `dist/dnd_iframe_autofit_datawrapper.js`,
+  format: 'iife',
+  name: 'dndIframeAutofitDatawrapper'
+});
+
+build({
   input: 'dist/templates/dnd_iframe_autofit_parent.js',
   plugins: [
     babel({

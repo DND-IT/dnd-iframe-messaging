@@ -1,3 +1,7 @@
+## 1.5.1 (May 12, 2020)
+
+* actually building the new script ([@andi](https://github.com/andi))
+
 ## 1.5.0 (May 12, 2020)
 
 * added a custom autofit plugin for datawrapper ([@andi](https://github.com/andi))
