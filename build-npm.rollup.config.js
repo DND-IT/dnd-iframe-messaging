@@ -53,12 +53,11 @@ initBuildDir().then(async () => {
       'src/child/child.js',
       'src/child/plugins/autofit.js',
       'src/parent/parent.js',
-      'src/parent/react/IFrameWithMessaging.jsx',
     ],
     plugins: [
       babel({
         exclude: 'node_modules/**',
-        presets: [["@babel/env", {modules: false}], "@babel/react"],
+        presets: [["@babel/env", {modules: false}]],
         plugins: [
           "@babel/plugin-proposal-class-properties"
         ],
