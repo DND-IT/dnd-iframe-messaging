@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "Plugin based library to handle 2 way communication between an iframe and it's parent using MessageChannels and/or postMessage",
   "main": "index.js",
+  "types": "./parent.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DND-IT/dnd-iframe-messaging.git"
@@ -17,9 +18,6 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  },
-  "peerDependencies": {
-    "react": "16.x"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

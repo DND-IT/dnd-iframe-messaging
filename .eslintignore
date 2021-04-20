@@ -1,3 +1,4 @@
 *rollup*
 dist/*.js
 build
+*.d.ts

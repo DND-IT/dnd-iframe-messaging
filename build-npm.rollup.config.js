@@ -20,6 +20,7 @@ async function initBuildDir() {
   await del(['build'])
   await fsPromises.mkdir('./build')
   await fsPromises.copyFile('package.json', 'build/package.json')
+  await fsPromises.copyFile('parent.d.ts', 'build/parent.d.ts')
 }
 
 initBuildDir().then(async () => {
