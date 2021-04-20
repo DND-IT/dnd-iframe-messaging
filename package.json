@@ -1,6 +1,6 @@
 {
   "name": "@dnd-it/dnd-iframe-messaging",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Plugin based library to handle 2 way communication between an iframe and it's parent using MessageChannels and/or postMessage",
   "main": "index.js",
   "types": "./parent.d.ts",
