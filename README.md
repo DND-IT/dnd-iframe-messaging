@@ -17,10 +17,21 @@ The autofit functionality (iframe will communicate its actual height to it's par
 
 The parent side of this code has been written in a way that it's backwards compatible with the existing autofit scripts that are out in the wild. See e.g. `enableLegacySupport` in [`useIframeMessaging ` in the disco code](https://github.com/DND-IT/disco/blob/master/src/hooks/useIframeMessaging.ts#L28).
 
-### Dark-mode (TODO)
+### Dark-mode
 
-If the parent page has a dark-mode toggle that the user can set to something else than the [system-default](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme), then we should propagate that setting to the child frames. This is the second use-case of this library.
+If the parent page has a dark-mode toggle that the user can set to something else than the [system-default](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme), then we should propagate that setting to the child frames. We could add this as the second use-case of this library, by adding a new plugin to the [child script](https://github.com/DND-IT/dnd-iframe-messaging/tree/master/src/child). But in the end, it's really only the following code that the child frame needs to implement:
 
+```js
+window.addEventListener('message', event => {
+  if (event.origin === "https://www.tagesanzeiger.ch") {
+    // this check is needed because of https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage#security_concerns
+    if (event.data.type === 'colorMode') {
+      // assuming you have a function setColorModeInChildApp in your app
+      setColorModeInChildApp(event.data.mode) // will be the string 'dark' or 'light'
+    }
+  }
+})
+```
 
 ## Code
 
