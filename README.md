@@ -46,6 +46,13 @@ Currently, we build a script that includes the autofit plugin. This is availlabl
 
 These are hosted in the [disco public folder].
 
+Child pages can include this e.g. at the bottom of the HTML body:
+
+```html
+  <script src="https://files.publishing.tamedia.ch/_static/dnd_iframe_autofit_child.js"></script>
+</body>
+```
+
 [disco public folder]: https://github.com/DND-IT/disco/tree/master/src/public/_static.
 
 ### Parent scripts (for [DISCO] or [20min-frontend])
