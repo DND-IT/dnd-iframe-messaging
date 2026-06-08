@@ -1,12 +1,15 @@
 {
   "name": "@dnd-it/dnd-iframe-messaging",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Plugin based library to handle 2 way communication between an iframe and it's parent using MessageChannels and/or postMessage",
   "main": "index.js",
   "types": "./parent.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DND-IT/dnd-iframe-messaging.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "node build-dist.rollup.config.js && node build-npm.rollup.config.js",

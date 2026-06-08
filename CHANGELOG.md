@@ -1,3 +1,7 @@
+## 2.0.2 (June 8, 2026)
+
+* added GitHub Actions pipeline to build and publish package to GitHub Packages on version tags
+
 ## 1.5.1 (May 12, 2020)
 
 * actually building the new script ([@andi](https://github.com/andi))

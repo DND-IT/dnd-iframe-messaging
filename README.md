@@ -65,7 +65,8 @@ To use the code, do the following:
 
 1. add the following line to `.npmrc` in your project:
 
-       //registry.npmjs.org/:_authToken=ce3429cf-4822-4773-862b-139031fef4d6
+       @dnd-it:registry=https://npm.pkg.github.com
+       //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
 
 2. add it the package to `package.json`:
 
@@ -92,6 +93,6 @@ The following steps are then executed:
 
 3) The src is pushed and tagged in GitHub with the new version
 
-4) The new npm package is built and published to [npmjs.com](https://www.npmjs.com/package/@dnd-it/dnd-iframe-messaging).
+4) The new npm package is built and published to [GitHub Packages](https://github.com/DND-IT/dnd-iframe-messaging/pkgs/npm/dnd-iframe-messaging).
 
 If the child-scripts need to be released, you need to manually update them in the [disco public folder].
